@@ -2,8 +2,6 @@
 
 # Your code to go here...
 
-
-
 my_group = {
     "Jill": {
         "age": 26,
@@ -45,5 +43,27 @@ my_group = {
         },
     }
 
-for name, content in my_group.items():
-    print (name)
+def forget(person1, person2):
+    for key in my_group.keys():
+        if key == person1:
+            del my_group[key]["connects"][person2]
+        elif key == person2:
+            del my_group[key]["connects"][person1]
+
+
+def add_person(name, age, job, relations):
+    my_group[name] = {
+        "age": age,
+        "job": job,
+        "connects": relations
+    }
+
+add_person("Frosty", 23, "", {"Zalika": "landlord", "John": "cousin"})
+
+def average_age(group):
+    total = 0
+    for person in group.values():
+        total += person["age"]
+    return total / len(group)
+
+print(average_age(my_group))
