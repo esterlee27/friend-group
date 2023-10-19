@@ -47,3 +47,15 @@ my_group = {
 
 for name, content in my_group.items():
     print (name)
+
+def forget(person1, person2):
+    for name, content in my_group.items():
+        if name == person1:
+           del my_group[name]["connects"][person2]
+        elif name == person2:
+           del my_group[name]["connects"][person1]
+
+def add_person(name, age, job, relations):
+    my_group[name]={"age":age, "job":job, "connects":relations}
+
+def 
